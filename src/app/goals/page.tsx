@@ -9,7 +9,8 @@ async function getGoals(): Promise<Goal[]> {
       title: '매일 운동하기',
       description: '매일 30분 이상 운동하여 건강한 생활 습관 만들기',
       status: 'completed' as const,
-      date: '2024-03-30',
+      startDate: '2024-03-01',
+      endDate: '2024-03-30',
       participants: [
         {
           id: '0',
@@ -25,7 +26,8 @@ async function getGoals(): Promise<Goal[]> {
       title: '새로운 언어 배우기',
       description: '스페인어 기초 회화 마스터하기',
       status: 'in-progress' as const,
-      date: '2024-06-15',
+      startDate: '2024-01-01',
+      endDate: '2024-06-15',
       participants: [
         {
           id: '0',
@@ -45,7 +47,8 @@ async function getGoals(): Promise<Goal[]> {
       title: '독서 모임 시작하기',
       description: '매월 한 권의 책을 읽고 토론하는 모임 운영',
       status: 'planned' as const,
-      date: '2024-04-01',
+      startDate: '2024-04-01',
+      endDate: '2024-12-31',
       participants: [
         {
           id: '0',
@@ -61,7 +64,8 @@ async function getGoals(): Promise<Goal[]> {
       title: '작은 정원 가꾸기',
       description: '베란다에 허브와 채소 키우기',
       status: 'in-progress' as const,
-      date: '2024-05-20',
+      startDate: '2024-03-01',
+      endDate: '2024-05-20',
       participants: [
         {
           id: '0',
@@ -81,7 +85,8 @@ async function getGoals(): Promise<Goal[]> {
       title: '프로그래밍 프로젝트',
       description: '개인 포트폴리오 웹사이트 제작하기',
       status: 'planned' as const,
-      date: '2024-07-15',
+      startDate: '2024-05-01',
+      endDate: '2024-07-15',
       participants: [
         {
           id: '0',
@@ -101,7 +106,8 @@ async function getGoals(): Promise<Goal[]> {
       title: '요리 도전',
       description: '매주 새로운 요리 레시피 시도하기',
       status: 'planned' as const,
-      date: '2024-04-30',
+      startDate: '2024-04-01',
+      endDate: '2024-04-30',
       participants: [
         {
           id: '0',
