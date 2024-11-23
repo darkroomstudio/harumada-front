@@ -1,5 +1,5 @@
 import { MotivationInput } from './motivation-input'
-import { NotificationDrawer } from '@/components/notification-drawer'
+import { NotificationDrawer } from '@/components/notifications/notification-drawer'
 
 export function Header() {
   return (

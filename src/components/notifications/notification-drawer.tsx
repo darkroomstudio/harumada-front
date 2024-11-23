@@ -23,7 +23,29 @@ type Notification = {
 }
 
 async function getNotifications(): Promise<Notification[]> {
-  return []
+  return [
+    {
+      id: '1',
+      avatar: 'https://github.com/devjiwonchoi.png',
+      username: '최지원',
+      message: '회원님의 게시물에 좋아요를 눌렀습니다.',
+      timestamp: '1분 전',
+    },
+    {
+      id: '2',
+      avatar: 'https://github.com/ggkim0614.png',
+      username: '김정환',
+      message: '회원님을 팔로우하기 시작했습니다.',
+      timestamp: '3시간 전',
+    },
+    {
+      id: '3',
+      avatar: 'https://github.com/jeonghoyang12.png',
+      username: '양정호',
+      message: '회원님의 게시물에 댓글을 남겼습니다: "멋진 글이네요!"',
+      timestamp: '어제',
+    },
+  ]
 }
 
 export function NotificationDrawer() {
