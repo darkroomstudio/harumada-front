@@ -1,6 +1,6 @@
 import type { Goal } from '@/components/goals/filter-tabs'
 import { FilterTabs } from '@/components/goals/filter-tabs'
-import { Button } from '@/components/ui/button'
+import { CreateGoalFlowInit } from '@/components/goals/create-goal-flow/init'
 
 async function getGoals(): Promise<Goal[]> {
   const goals = [
@@ -11,8 +11,12 @@ async function getGoals(): Promise<Goal[]> {
       status: 'completed' as const,
       date: '2024-03-30',
       participants: [
-        { id: '0', avatar: 'https://github.com/devjiwonchoi.png' },
-        { id: '1', avatar: 'https://github.com/ggkim0614.png' },
+        {
+          id: '0',
+          name: 'Jiwon Choi',
+          avatar: 'https://github.com/devjiwonchoi.png',
+        },
+        { id: '1', name: 'GG Kim', avatar: 'https://github.com/ggkim0614.png' },
       ],
       boatType: 'pirate' as const,
     },
@@ -23,8 +27,16 @@ async function getGoals(): Promise<Goal[]> {
       status: 'in-progress' as const,
       date: '2024-06-15',
       participants: [
-        { id: '0', avatar: 'https://github.com/devjiwonchoi.png' },
-        { id: '2', avatar: 'https://github.com/jeonghoyang12.png' },
+        {
+          id: '0',
+          name: 'Jiwon Choi',
+          avatar: 'https://github.com/devjiwonchoi.png',
+        },
+        {
+          id: '2',
+          name: 'Jeongho Yang',
+          avatar: 'https://github.com/jeonghoyang12.png',
+        },
       ],
       boatType: 'boat' as const,
     },
@@ -35,8 +47,12 @@ async function getGoals(): Promise<Goal[]> {
       status: 'planned' as const,
       date: '2024-04-01',
       participants: [
-        { id: '0', avatar: 'https://github.com/devjiwonchoi.png' },
-        { id: '1', avatar: 'https://github.com/ggkim0614.png' },
+        {
+          id: '0',
+          name: 'Jiwon Choi',
+          avatar: 'https://github.com/devjiwonchoi.png',
+        },
+        { id: '1', name: 'GG Kim', avatar: 'https://github.com/ggkim0614.png' },
       ],
       boatType: 'pirate' as const,
     },
@@ -47,8 +63,16 @@ async function getGoals(): Promise<Goal[]> {
       status: 'in-progress' as const,
       date: '2024-05-20',
       participants: [
-        { id: '0', avatar: 'https://github.com/devjiwonchoi.png' },
-        { id: '2', avatar: 'https://github.com/jeonghoyang12.png' },
+        {
+          id: '0',
+          name: 'Jiwon Choi',
+          avatar: 'https://github.com/devjiwonchoi.png',
+        },
+        {
+          id: '2',
+          name: 'Jeongho Yang',
+          avatar: 'https://github.com/jeonghoyang12.png',
+        },
       ],
       boatType: 'boat' as const,
     },
@@ -59,8 +83,16 @@ async function getGoals(): Promise<Goal[]> {
       status: 'planned' as const,
       date: '2024-07-15',
       participants: [
-        { id: '0', avatar: 'https://github.com/devjiwonchoi.png' },
-        { id: '2', avatar: 'https://github.com/jeonghoyang12.png' },
+        {
+          id: '0',
+          name: 'Jiwon Choi',
+          avatar: 'https://github.com/devjiwonchoi.png',
+        },
+        {
+          id: '2',
+          name: 'Jeongho Yang',
+          avatar: 'https://github.com/jeonghoyang12.png',
+        },
       ],
       boatType: 'pirate' as const,
     },
@@ -71,8 +103,12 @@ async function getGoals(): Promise<Goal[]> {
       status: 'planned' as const,
       date: '2024-04-30',
       participants: [
-        { id: '0', avatar: 'https://github.com/devjiwonchoi.png' },
-        { id: '1', avatar: 'https://github.com/ggkim0614.png' },
+        {
+          id: '0',
+          name: 'Jiwon Choi',
+          avatar: 'https://github.com/devjiwonchoi.png',
+        },
+        { id: '1', name: 'GG Kim', avatar: 'https://github.com/ggkim0614.png' },
       ],
       boatType: 'boat' as const,
     },
@@ -88,9 +124,7 @@ export default async function Goals() {
     <div className="flex flex-col bg-white dark:bg-slate-950">
       <FilterTabs goals={goals} />
       <div className="p-4">
-        <Button className="w-full bg-[#4E3FFF] text-white hover:bg-[#4E3FFF]/90">
-          + 목표 추가하기
-        </Button>
+        <CreateGoalFlowInit />
       </div>
     </div>
   )

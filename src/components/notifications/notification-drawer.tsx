@@ -9,6 +9,7 @@ import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -68,7 +69,7 @@ export function NotificationDrawer() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        {/* TODO: Suspense fallback */}
+        {/* // TODO: Suspense fallback */}
         <Image
           src="/notification.svg"
           alt="notification"
@@ -80,6 +81,9 @@ export function NotificationDrawer() {
         <SheetHeader className="border-b p-4">
           <div className="flex items-center justify-between">
             <SheetTitle className="text-xl font-semibold">알림</SheetTitle>
+            <SheetDescription className="sr-only">
+              Notifications
+            </SheetDescription>
             <Button
               variant="ghost"
               size="icon"
