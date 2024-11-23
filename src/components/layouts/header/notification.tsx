@@ -1,13 +1,12 @@
 'use client'
 import Image from 'next/image'
-// import { BellIcon } from '@radix-ui/react-icons'
 import { Button } from '@/components/ui/button'
 
 export function Notification() {
   return (
     <Button
       onClick={() => {
-        console.log('Notification button clicked')
+        window.location.href = '/notifications'
       }}
       variant="ghost"
       size="icon"
