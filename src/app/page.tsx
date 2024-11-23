@@ -1,4 +1,5 @@
 import ProgressCard from '@/components/custom/progress-card'
+import { MotivationInput } from '@/components/layouts/header/motivation-input'
 
 async function getProgressCards() {
   const cards = [
@@ -30,14 +31,23 @@ async function getProgressCards() {
   return cards
 }
 
+async function getMotivationText() {
+  const motivationText = '이제는 더 이상 물러날 곳이 없다'
+  return motivationText
+}
+
 export default async function Page() {
   const cards = await getProgressCards()
+  const motivationText = await getMotivationText()
   return (
-    <main className="p-4">
-      <h2 className="mb-4 text-xl font-bold">진행중인 목표</h2>
-      {cards.map((card) => (
-        <ProgressCard key={card.id} {...card} />
-      ))}
+    <main>
+      <MotivationInput motivationText={motivationText} />
+      <div className="p-4">
+        <h2 className="mb-4 text-xl font-bold">진행중인 목표</h2>
+        {cards.map((card) => (
+          <ProgressCard key={card.id} {...card} />
+        ))}
+      </div>
     </main>
   )
 }

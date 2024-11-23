@@ -4,7 +4,11 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { SetStateAction, useState } from 'react'
 
-export function MotivationInput() {
+export function MotivationInput({
+  motivationText,
+}: {
+  motivationText: string
+}) {
   const [inputValue, setInputValue] = useState('')
 
   const handleInputChange = (event: {
@@ -28,7 +32,7 @@ export function MotivationInput() {
       <Input
         className="rounded-[44px] border-none bg-[#F8F8F8] placeholder:text-black"
         type="text"
-        placeholder="이제는 더 이상 물러날 곳이 없다"
+        placeholder={motivationText}
         onChange={handleInputChange}
         onKeyDown={handleInputKeyPress}
       />
