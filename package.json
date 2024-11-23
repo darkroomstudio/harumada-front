@@ -4,8 +4,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint-fix": "prettier --write . && next lint --fix",
+    "format": "prettier --write .",
     "tb": "pnpm turbo build",
     "prepare": "husky"
   },
@@ -16,7 +15,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.378.0",
+    "lucide-react": "^0.460.0",
     "next": "^15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
@@ -24,25 +23,21 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "^20.17.6",
+    "@types/node": "^20.17.7",
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
-    "eslint": "^8.57.1",
-    "eslint-config-next": "15.0.3",
-    "eslint-config-prettier": "^9.1.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
     "postcss": "^8.4.49",
     "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.5.14",
+    "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwindcss": "^3.4.15",
-    "turbo": "^1.13.4",
+    "turbo": "^2.3.1",
     "typescript": "^5.7.2"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mdx}": [
-      "prettier --write",
-      "eslint --no-ignore --max-warnings=0 --fix"
+      "prettier --write"
     ],
     "*.{md,json,yml,yaml}": [
       "prettier --write"
@@ -57,16 +52,14 @@
       "prettier-plugin-tailwindcss"
     ]
   },
-  "eslintConfig": {
-    "extends": [
-      "next/core-web-vitals",
-      "prettier"
-    ]
-  },
   "postcss": {
     "plugins": {
       "tailwindcss": {}
     }
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9.6.0"
   },
   "packageManager": "pnpm@9.6.0",
   "pnpm": {
