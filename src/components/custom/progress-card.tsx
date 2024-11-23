@@ -1,8 +1,12 @@
+'use client'
+
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
+import { useState } from 'react'
 
 interface ProgressCardProps {
+  id: string
   dueDate: string
   progress: number
   title: string
@@ -12,6 +16,7 @@ interface ProgressCardProps {
 }
 
 export default function ProgressCard({
+  id,
   dueDate,
   progress,
   title,
@@ -22,6 +27,8 @@ export default function ProgressCard({
     '/placeholder.svg?height=32&width=32',
   ],
 }: ProgressCardProps) {
+  const [isChecked, setIsChecked] = useState(false)
+
   // Format date to YYYY.MM.DD
   const formattedDate = new Date(dueDate)
     .toLocaleDateString('ko-KR', {
@@ -31,6 +38,20 @@ export default function ProgressCard({
     })
     .replace(/\./g, '.')
     .slice(0, -1)
+
+  const handleAttendanceClick = () => {
+    setIsChecked(true)
+    console.log({
+      id,
+      dueDate,
+      progress,
+      title,
+      currentDay,
+      totalDays,
+      avatars,
+      isChecked,
+    })
+  }
 
   return (
     <Card className="w-[280px] bg-white">
@@ -96,9 +117,16 @@ export default function ProgressCard({
           ))}
         </div>
 
-        {/* Action Button */}
-        <Button className="w-full bg-[#4263eb] text-white hover:bg-[#3b5bde]">
-          출석하기
+        {/* Attendance Button */}
+        <Button
+          className={`w-full ${
+            isChecked
+              ? 'bg-purple-600 hover:bg-purple-700'
+              : 'bg-[#4263eb] hover:bg-[#3b5bde]'
+          } text-white`}
+          onClick={handleAttendanceClick}
+        >
+          {isChecked ? '출석완료' : '출석하기'}
         </Button>
       </CardContent>
     </Card>
