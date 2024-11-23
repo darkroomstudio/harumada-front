@@ -30,13 +30,11 @@ async function getProgressCards() {
 export default async function Page() {
   const cards = await getProgressCards()
   return (
-    <main>
-      <div className="p-4">
-        <h2 className="mb-4 text-xl font-bold">진행중인 목표</h2>
-        {cards.map((card) => (
-          <ProgressCard key={card.title} {...card} />
-        ))}
-      </div>
+    <main className="p-4">
+      <h2 className="mb-4 text-xl font-bold">진행중인 목표</h2>
+      {cards.map((card) => (
+        <ProgressCard key={card.title} {...card} />
+      ))}
     </main>
   )
 }
