@@ -9,8 +9,9 @@ export type Goal = {
   id: string
   title: string
   description: string
-  date: string
-  participants: [{ id: string; avatar: string }, { id: string; avatar: string }]
+  startDate: string
+  endDate: string
+  participants: { id: string; name: string; avatar: string }[]
   boatType: 'pirate' | 'boat'
   status: 'completed' | 'in-progress' | 'planned'
 }
