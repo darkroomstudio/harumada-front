@@ -7,7 +7,8 @@ export function GoalCard({
   title,
   boatType,
   status,
-  date,
+  startDate,
+  endDate,
   participants,
 }: Goal) {
   const isCompleted = status === 'completed'
@@ -21,7 +22,7 @@ export function GoalCard({
         } h-[160px] text-white`}
       >
         <div className="space-y-2">
-          <p className="text-sm opacity-80">{date}</p>
+          <p className="text-sm opacity-80">{endDate}</p>
           <h3 className="font-medium">{title}</h3>
           <div className="flex -space-x-2">
             {participants.map(({ id, avatar }) => (
