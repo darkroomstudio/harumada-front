@@ -30,6 +30,15 @@ importers:
       '@radix-ui/react-tabs':
         specifier: ^1.1.1
         version: 1.1.1(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)(types-react-dom@19.0.0-rc.1)(types-react@19.0.0-rc.1)
+      '@types/node':
+        specifier: ^20.17.7
+        version: 20.17.7
+      '@types/react':
+        specifier: npm:types-react@19.0.0-rc.1
+        version: types-react@19.0.0-rc.1
+      '@types/react-dom':
+        specifier: npm:types-react-dom@19.0.0-rc.1
+        version: types-react-dom@19.0.0-rc.1
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -42,6 +51,9 @@ importers:
       next:
         specifier: ^15.0.3
         version: 15.0.3(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
+      postcss:
+        specifier: ^8.4.49
+        version: 8.4.49
       react:
         specifier: 19.0.0-rc-66855b96-20241106
         version: 19.0.0-rc-66855b96-20241106
@@ -51,46 +63,34 @@ importers:
       tailwind-merge:
         specifier: ^2.5.4
         version: 2.5.4
+      tailwindcss:
+        specifier: ^3.4.15
+        version: 3.4.15
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.15)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.7.2
       vaul:
         specifier: ^1.1.1
         version: 1.1.1(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)(types-react-dom@19.0.0-rc.1)(types-react@19.0.0-rc.1)
     devDependencies:
-      '@types/node':
-        specifier: ^20.17.7
-        version: 20.17.7
-      '@types/react':
-        specifier: npm:types-react@19.0.0-rc.1
-        version: types-react@19.0.0-rc.1
-      '@types/react-dom':
-        specifier: npm:types-react-dom@19.0.0-rc.1
-        version: types-react-dom@19.0.0-rc.1
       husky:
         specifier: ^9.1.7
         version: 9.1.7
       lint-staged:
         specifier: ^15.2.10
         version: 15.2.10
-      postcss:
-        specifier: ^8.4.49
-        version: 8.4.49
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
       prettier-plugin-tailwindcss:
         specifier: ^0.6.9
         version: 0.6.9(prettier@3.3.3)
-      tailwindcss:
-        specifier: ^3.4.15
-        version: 3.4.15
       turbo:
         specifier: ^2.3.1
         version: 2.3.1
-      typescript:
-        specifier: ^5.7.2
-        version: 5.7.2
 
 packages:
 
