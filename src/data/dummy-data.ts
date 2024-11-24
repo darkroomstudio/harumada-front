@@ -11,8 +11,8 @@ export const progressData: ProgressData = {
   nextStage: '해적선',
   progress: 99,
   participants: [
-    { id: '1', avatar: '/placeholder.svg?height=40&width=40' },
-    { id: '2', avatar: '/placeholder.svg?height=40&width=40' },
+    { id: '1', avatar: 'https://github.com/devjiwonchoi.png' },
+    { id: '2', avatar: 'https://github.com/devjiwonchoi.png' },
   ],
   attendanceRecords: [
     {
