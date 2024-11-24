@@ -10,27 +10,30 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
+import { Textarea } from '@/components/ui/textarea'
 
-type AskInvitationCodeProps = {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-  children: React.ReactNode
-}
-
-export function AskInvitationCode({
+export function SetMotivation({
   open,
   onOpenChange,
-  children,
-}: AskInvitationCodeProps) {
+  motivation,
+  onMotivationChange,
+  handleCreateGoal,
+}: {
+  open: boolean
+  onOpenChange: (open: boolean) => void
+  motivation: string
+  onMotivationChange: (motivation: string) => void
+  handleCreateGoal: () => void
+}) {
   return (
-    <Drawer open={open} onOpenChange={onOpenChange}>
+    <Drawer open={open} onOpenChange={onOpenChange} direction="right">
       <DrawerTrigger asChild>
         <Button
-          className="w-full bg-[#4E3FFF] text-white hover:bg-[#4E3FFF]/90"
+          className="w-full justify-start rounded-full py-6 text-slate-950 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-50 dark:hover:bg-slate-800 dark:hover:text-slate-50"
           variant="outline"
           onClick={() => onOpenChange(true)}
         >
-          + 목표 추가하기
+          다음 &gt;
         </Button>
       </DrawerTrigger>
       <DrawerContent className="h-full w-full border-l-0 p-0 sm:max-w-full">
@@ -52,16 +55,31 @@ export function AskInvitationCode({
           </DrawerHeader>
           <div className="flex-1 overflow-y-auto px-4 py-6">
             <DrawerTitle className="mb-4 text-2xl font-bold">
-              초대 코드를 받으셨나요?
+              마지막으로 다짐 <br /> 한마디를 적어주세요 👊
             </DrawerTitle>
-            <DrawerDescription className="sr-only">
-              초대 코드를 입력하면 초대된 목표를 확인할 수 있어요.
+            <DrawerDescription>
+              목표를 이루기 위한 다짐을 적어주세요!
             </DrawerDescription>
             <div className="space-y-4">
-              <Button className="w-full justify-start rounded-full bg-blue-500 py-6 text-white hover:bg-blue-600">
-                초대 코드가 있어요 &gt;
+              <div className="relative">
+                <Textarea
+                  value={motivation}
+                  onChange={(e) => onMotivationChange(e.target.value)}
+                  placeholder="나가 살아"
+                  className="min-h-[120px] resize-none pr-12"
+                  maxLength={50}
+                />
+                <div className="absolute bottom-2 right-2 text-xs text-gray-400">
+                  {motivation.length}/50
+                </div>
+              </div>
+              <Button
+                variant="outline"
+                className="w-full justify-center rounded-full py-6"
+                onClick={handleCreateGoal}
+              >
+                다음 &gt;
               </Button>
-              {children}
             </div>
           </div>
         </div>

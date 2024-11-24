@@ -1,7 +1,14 @@
 'use client'
 
-import { ChevronLeft } from 'lucide-react'
+import { format } from 'date-fns'
+import { CalendarIcon, ChevronLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Calendar } from '@/components/ui/calendar'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
 import {
   Drawer,
   DrawerContent,
@@ -10,27 +17,21 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
-import { Input } from '@/components/ui/input'
+import { cn } from '@/lib/utils'
 
-interface WriteInvitationCodeProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-  invitationCode: string
-  onInvitationCodeChange: (code: string) => void
-  children: React.ReactNode
-}
-
-export function WriteInvitationCode({
+export function SetStartDate({
   open,
   onOpenChange,
-  invitationCode,
-  onInvitationCodeChange,
+  startDate,
+  onStartDateChange,
   children,
-}: WriteInvitationCodeProps) {
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onInvitationCodeChange(event.target.value)
-  }
-
+}: {
+  open: boolean
+  onOpenChange: (open: boolean) => void
+  startDate: Date
+  onStartDateChange: (date: any) => void
+  children: React.ReactNode
+}) {
   return (
     <Drawer open={open} onOpenChange={onOpenChange} direction="right">
       <DrawerTrigger asChild>
@@ -39,7 +40,7 @@ export function WriteInvitationCode({
           variant="outline"
           onClick={() => onOpenChange(true)}
         >
-          초대 코드가 있어요 &gt;
+          목표 상세 설정하기 &gt;
         </Button>
       </DrawerTrigger>
       <DrawerContent className="h-full w-full border-l-0 p-0 sm:max-w-full">
@@ -61,19 +62,38 @@ export function WriteInvitationCode({
           </DrawerHeader>
           <div className="flex-1 overflow-y-auto px-4 py-6">
             <DrawerTitle className="mb-4 text-2xl font-bold">
-              초대 코드를 입력해주세요
+              시작일을 <br /> 설정해주세요 ⛳
             </DrawerTitle>
-            <DrawerDescription className="sr-only">
-              친구와 공유할 수 있는 목표를 입력해주세요
+            <DrawerDescription>
+              목표를 언제부터 시작할지 선택하세요
             </DrawerDescription>
             <div className="space-y-4">
-              <Input
-                value={invitationCode}
-                onChange={handleInputChange}
-                className="rounded-[44px] border-none bg-[#F8F8F8] placeholder:text-black"
-                type="text"
-                placeholder="입력하세요"
-              />
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant={'outline'}
+                    className={cn(
+                      'w-[280px] justify-start text-left font-normal',
+                      !startDate && 'text-slate-500 dark:text-slate-400'
+                    )}
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    {startDate ? (
+                      format(startDate, 'PPP')
+                    ) : (
+                      <span>Pick a date</span>
+                    )}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0">
+                  <Calendar
+                    mode="single"
+                    selected={startDate}
+                    onSelect={onStartDateChange}
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
               {children}
             </div>
           </div>

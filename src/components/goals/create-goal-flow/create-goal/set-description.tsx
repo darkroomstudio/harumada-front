@@ -10,27 +10,21 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
-import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 
-interface WriteInvitationCodeProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-  invitationCode: string
-  onInvitationCodeChange: (code: string) => void
-  children: React.ReactNode
-}
-
-export function WriteInvitationCode({
+export function SetDescription({
   open,
   onOpenChange,
-  invitationCode,
-  onInvitationCodeChange,
+  description,
+  onDescriptionChange,
   children,
-}: WriteInvitationCodeProps) {
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onInvitationCodeChange(event.target.value)
-  }
-
+}: {
+  open: boolean
+  onOpenChange: (open: boolean) => void
+  description: string
+  onDescriptionChange: (description: string) => void
+  children: React.ReactNode
+}) {
   return (
     <Drawer open={open} onOpenChange={onOpenChange} direction="right">
       <DrawerTrigger asChild>
@@ -39,7 +33,7 @@ export function WriteInvitationCode({
           variant="outline"
           onClick={() => onOpenChange(true)}
         >
-          초대 코드가 있어요 &gt;
+          다음 &gt;
         </Button>
       </DrawerTrigger>
       <DrawerContent className="h-full w-full border-l-0 p-0 sm:max-w-full">
@@ -61,19 +55,25 @@ export function WriteInvitationCode({
           </DrawerHeader>
           <div className="flex-1 overflow-y-auto px-4 py-6">
             <DrawerTitle className="mb-4 text-2xl font-bold">
-              초대 코드를 입력해주세요
+              목표를 상세히 <br /> 설명해 주세요 🧐
             </DrawerTitle>
-            <DrawerDescription className="sr-only">
-              친구와 공유할 수 있는 목표를 입력해주세요
+            <DrawerDescription>
+              목표를 설정한 이유와 이를 달성하기 위한 <br /> 구체적인 계획을
+              작성해 주세요
             </DrawerDescription>
             <div className="space-y-4">
-              <Input
-                value={invitationCode}
-                onChange={handleInputChange}
-                className="rounded-[44px] border-none bg-[#F8F8F8] placeholder:text-black"
-                type="text"
-                placeholder="입력하세요"
-              />
+              <div className="relative">
+                <Textarea
+                  value={description}
+                  onChange={(e) => onDescriptionChange(e.target.value)}
+                  placeholder="매일 열한시 전에 술을 계획 할 수 있도록 할 것"
+                  className="min-h-[120px] resize-none pr-12"
+                  maxLength={100}
+                />
+                <div className="absolute bottom-2 right-2 text-xs text-gray-400">
+                  {description.length}/100
+                </div>
+              </div>
               {children}
             </div>
           </div>

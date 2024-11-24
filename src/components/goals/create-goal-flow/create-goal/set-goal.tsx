@@ -12,23 +12,21 @@ import {
 } from '@/components/ui/drawer'
 import { Input } from '@/components/ui/input'
 
-interface WriteInvitationCodeProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-  invitationCode: string
-  onInvitationCodeChange: (code: string) => void
-  children: React.ReactNode
-}
-
-export function WriteInvitationCode({
+export function SetGoal({
   open,
   onOpenChange,
-  invitationCode,
-  onInvitationCodeChange,
+  goalTitle,
+  onGoalTitleChange,
   children,
-}: WriteInvitationCodeProps) {
+}: {
+  open: boolean
+  onOpenChange: (open: boolean) => void
+  goalTitle: string
+  onGoalTitleChange: (title: string) => void
+  children: React.ReactNode
+}) {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onInvitationCodeChange(event.target.value)
+    onGoalTitleChange(event.target.value)
   }
 
   return (
@@ -39,7 +37,7 @@ export function WriteInvitationCode({
           variant="outline"
           onClick={() => onOpenChange(true)}
         >
-          초대 코드가 있어요 &gt;
+          직접 목표 설정하기 &gt;
         </Button>
       </DrawerTrigger>
       <DrawerContent className="h-full w-full border-l-0 p-0 sm:max-w-full">
@@ -61,14 +59,14 @@ export function WriteInvitationCode({
           </DrawerHeader>
           <div className="flex-1 overflow-y-auto px-4 py-6">
             <DrawerTitle className="mb-4 text-2xl font-bold">
-              초대 코드를 입력해주세요
+              목표를 설정해주세요.
             </DrawerTitle>
             <DrawerDescription className="sr-only">
               친구와 공유할 수 있는 목표를 입력해주세요
             </DrawerDescription>
             <div className="space-y-4">
               <Input
-                value={invitationCode}
+                value={goalTitle}
                 onChange={handleInputChange}
                 className="rounded-[44px] border-none bg-[#F8F8F8] placeholder:text-black"
                 type="text"
