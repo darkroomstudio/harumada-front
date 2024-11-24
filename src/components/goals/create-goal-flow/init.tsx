@@ -1,65 +1,95 @@
 'use client'
 
+import type { Goal } from '@/components/goals/filter-tabs'
 import { useState } from 'react'
-import { ChevronLeft } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import {
-  Drawer,
-  DrawerContent,
-  DrawerDescription,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from '@/components/ui/drawer'
+import { AskInvitationCode } from './ask-invitation-code'
 import { WriteInvitationCode } from './has-invitation/write-invitation-code'
+import { InvitationPreview } from './has-invitation/invitation-preview'
+import { InvitationInfo } from './has-invitation/invitation-info'
+import { InvitationDeclined } from './has-invitation/invitation-declined'
+import { toast } from 'sonner'
 
 export function CreateGoalFlowInit() {
-  const [open, setOpen] = useState(false)
+  const [openAskInvitationCode, setOpenAskInvitationCode] = useState(false)
+  const [openWriteInvitation, setOpenWriteInvitation] = useState(false)
+  const [openInvitationPreview, setOpenInvitationPreview] = useState(false)
+  const [openInvitationInfo, setOpenInvitationInfo] = useState(false)
+  const [openInvitationDeclined, setOpenInvitationDeclined] = useState(false)
+  const [invitationCode, setInvitationCode] = useState('')
+  const [goalInfo, setGoalInfo] = useState<Goal | undefined>()
+
+  const getInvitationInfo = (code: string) => {
+    // TODO: Replace with SWR
+    const goal = {
+      id: '1',
+      title: '스쿠버 다이빙 배우기',
+      description: '스쿠버 다이빙 배우기',
+      startDate: '2024-06-30',
+      endDate: '2024-07-01',
+      participants: [
+        {
+          id: '0',
+          name: '최지원',
+          avatar: 'https://github.com/devjiwonchoi.png',
+        },
+      ],
+      boatType: 'pirate',
+      status: 'planned',
+    } satisfies Goal
+
+    setGoalInfo(goal)
+  }
+
+  const handleDecline = () => {
+    // close all drawers
+    setOpenAskInvitationCode(false)
+    setOpenWriteInvitation(false)
+    setOpenInvitationPreview(false)
+    setOpenInvitationInfo(false)
+    setOpenInvitationDeclined(false)
+
+    // FIXME: Toast not displayed
+    toast('거절이 완료됐어요. 언제든지 코드로 재수락 가능해요.', {
+      description: 'Sunday, December 03, 2023 at 9:00 AM',
+      position: 'top-center',
+      action: {
+        label: 'Undo',
+        onClick: () => console.log('Undo'),
+      },
+    })
+  }
 
   return (
-    <Drawer open={open} onOpenChange={setOpen} direction="right">
-      <DrawerTrigger asChild>
-        <Button
-          className="w-full bg-[#4E3FFF] text-white hover:bg-[#4E3FFF]/90"
-          variant="outline"
-          onClick={() => setOpen(true)}
+    <AskInvitationCode
+      open={openAskInvitationCode}
+      onOpenChange={setOpenAskInvitationCode}
+    >
+      <WriteInvitationCode
+        open={openWriteInvitation}
+        onOpenChange={setOpenWriteInvitation}
+        invitationCode={invitationCode}
+        onInvitationCodeChange={setInvitationCode}
+      >
+        <InvitationPreview
+          open={openInvitationPreview}
+          onOpenChange={setOpenInvitationPreview}
+          invitationCode={invitationCode}
+          goalInfo={goalInfo}
+          onGetInvitationInfo={getInvitationInfo}
         >
-          + 목표 추가하기
-        </Button>
-      </DrawerTrigger>
-      <DrawerContent className="h-full w-full border-l-0 p-0 sm:max-w-full">
-        <div className="flex h-full flex-col">
-          <DrawerHeader className="border-b px-4 py-3">
-            <div className="flex items-center justify-between">
-              <div className="text-left text-lg font-semibold">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="mr-2 h-9 w-9 rounded-full"
-                  onClick={() => setOpen(false)}
-                >
-                  <ChevronLeft className="h-6 w-6" />
-                </Button>
-                이전
-              </div>
-            </div>
-          </DrawerHeader>
-          <div className="flex-1 overflow-y-auto px-4 py-6">
-            <DrawerTitle className="mb-4 text-2xl font-bold">
-              초대 코드를 받으셨나요?
-            </DrawerTitle>
-            <DrawerDescription className="sr-only">
-              초대 코드를 입력하면 초대된 목표를 확인할 수 있어요.
-            </DrawerDescription>
-            <div className="space-y-4">
-              <Button className="w-full justify-start rounded-full bg-blue-500 py-6 text-white hover:bg-blue-600">
-                초대 코드가 있어요 &gt;
-              </Button>
-              <WriteInvitationCode />
-            </div>
-          </div>
-        </div>
-      </DrawerContent>
-    </Drawer>
+          <InvitationInfo
+            open={openInvitationInfo}
+            onOpenChange={setOpenInvitationInfo}
+            goalInfo={goalInfo!}
+          >
+            <InvitationDeclined
+              open={openInvitationDeclined}
+              onOpenChange={setOpenInvitationDeclined}
+              handleDecline={handleDecline}
+            />
+          </InvitationInfo>
+        </InvitationPreview>
+      </WriteInvitationCode>
+    </AskInvitationCode>
   )
 }

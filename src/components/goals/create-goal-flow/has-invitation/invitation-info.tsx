@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import {
   Drawer,
@@ -13,10 +12,21 @@ import { ChevronLeft } from 'lucide-react'
 import { Goal } from '../../filter-tabs'
 import Image from 'next/image'
 
-export function InvitationInfo({ goalInfo }: { goalInfo: Goal }) {
-  const [open, setOpen] = useState(false)
+interface InvitationInfoProps {
+  goalInfo: Goal
+  open: boolean
+  onOpenChange: (open: boolean) => void
+  children?: React.ReactNode
+}
+
+export function InvitationInfo({
+  goalInfo,
+  open,
+  onOpenChange,
+  children,
+}: InvitationInfoProps) {
   return (
-    <Drawer open={open} onOpenChange={setOpen} direction="right">
+    <Drawer open={open} onOpenChange={onOpenChange} direction="right">
       <DrawerTrigger asChild>
         <Button
           variant="default"
@@ -33,7 +43,7 @@ export function InvitationInfo({ goalInfo }: { goalInfo: Goal }) {
                 variant="ghost"
                 size="icon"
                 className="mr-2 h-9 w-9 rounded-full"
-                onClick={() => setOpen(false)}
+                onClick={() => onOpenChange(false)}
               >
                 <ChevronLeft className="h-6 w-6" />
               </Button>
@@ -74,12 +84,7 @@ export function InvitationInfo({ goalInfo }: { goalInfo: Goal }) {
             >
               목표 참가하기 &gt;
             </Button>
-            <Button
-              variant="outline"
-              className="w-full justify-center rounded-full py-6"
-            >
-              목표 거절하기 &gt;
-            </Button>
+            {children}
           </div>
         </div>
       </DrawerContent>
