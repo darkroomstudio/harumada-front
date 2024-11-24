@@ -9,7 +9,7 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer'
 import { ChevronLeft } from 'lucide-react'
-import { Goal } from '../../filter-tabs'
+import { Goal } from '@/types/progress'
 import Image from 'next/image'
 
 interface InvitationInfoProps {
@@ -61,7 +61,7 @@ export function InvitationInfo({
               <h3 className="mb-2 text-xl font-semibold">{goalInfo.title}</h3>
               <div className="mb-2 flex items-center">
                 <Image
-                  src={goalInfo.participants[0].avatar ?? '/placeholder.svg'}
+                  src={goalInfo.participants[0].avatarUrl}
                   alt="Profile"
                   width={32}
                   height={32}

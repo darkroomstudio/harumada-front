@@ -1,4 +1,4 @@
-import type { Goal } from '@/components/goals/filter-tabs'
+import type { Goal } from '@/types/progress'
 import { FilterTabs } from '@/components/goals/filter-tabs'
 import { CreateGoalFlowInit } from '@/components/goals/create-goal-flow/init'
 
@@ -13,11 +13,27 @@ async function getGoals(): Promise<Goal[]> {
       endDate: '2024-03-30',
       participants: [
         {
-          id: '0',
+          id: '1',
           name: 'Jiwon Choi',
-          avatar: 'https://github.com/devjiwonchoi.png',
+          description: '',
+          avatarUrl: 'https://github.com/devjiwonchoi.png',
+          stats: {
+            inProgress: '2',
+            completed: '5',
+            totalPartners: '3',
+          },
         },
-        { id: '1', name: 'GG Kim', avatar: 'https://github.com/ggkim0614.png' },
+        {
+          id: '2',
+          name: 'GG Kim',
+          description: '',
+          avatarUrl: 'https://github.com/ggkim0614.png',
+          stats: {
+            inProgress: '1',
+            completed: '3',
+            totalPartners: '2',
+          },
+        },
       ],
       boatType: 'pirate' as const,
     },
@@ -30,14 +46,26 @@ async function getGoals(): Promise<Goal[]> {
       endDate: '2024-06-15',
       participants: [
         {
-          id: '0',
+          id: '1',
           name: 'Jiwon Choi',
-          avatar: 'https://github.com/devjiwonchoi.png',
+          description: '',
+          avatarUrl: 'https://github.com/devjiwonchoi.png',
+          stats: {
+            inProgress: '3',
+            completed: '4',
+            totalPartners: '2',
+          },
         },
         {
-          id: '2',
+          id: '3',
           name: 'Jeongho Yang',
-          avatar: 'https://github.com/jeonghoyang12.png',
+          description: '',
+          avatarUrl: 'https://github.com/jeonghoyang12.png',
+          stats: {
+            inProgress: '2',
+            completed: '1',
+            totalPartners: '4',
+          },
         },
       ],
       boatType: 'boat' as const,
@@ -51,11 +79,27 @@ async function getGoals(): Promise<Goal[]> {
       endDate: '2024-12-31',
       participants: [
         {
-          id: '0',
+          id: '1',
           name: 'Jiwon Choi',
-          avatar: 'https://github.com/devjiwonchoi.png',
+          description: '',
+          avatarUrl: 'https://github.com/devjiwonchoi.png',
+          stats: {
+            inProgress: '4',
+            completed: '2',
+            totalPartners: '5',
+          },
         },
-        { id: '1', name: 'GG Kim', avatar: 'https://github.com/ggkim0614.png' },
+        {
+          id: '2',
+          name: 'GG Kim',
+          description: '',
+          avatarUrl: 'https://github.com/ggkim0614.png',
+          stats: {
+            inProgress: '1',
+            completed: '6',
+            totalPartners: '3',
+          },
+        },
       ],
       boatType: 'pirate' as const,
     },
@@ -68,14 +112,26 @@ async function getGoals(): Promise<Goal[]> {
       endDate: '2024-05-20',
       participants: [
         {
-          id: '0',
+          id: '1',
           name: 'Jiwon Choi',
-          avatar: 'https://github.com/devjiwonchoi.png',
+          description: '',
+          avatarUrl: 'https://github.com/devjiwonchoi.png',
+          stats: {
+            inProgress: '2',
+            completed: '3',
+            totalPartners: '1',
+          },
         },
         {
-          id: '2',
+          id: '3',
           name: 'Jeongho Yang',
-          avatar: 'https://github.com/jeonghoyang12.png',
+          description: '',
+          avatarUrl: 'https://github.com/jeonghoyang12.png',
+          stats: {
+            inProgress: '5',
+            completed: '2',
+            totalPartners: '4',
+          },
         },
       ],
       boatType: 'boat' as const,
@@ -89,14 +145,26 @@ async function getGoals(): Promise<Goal[]> {
       endDate: '2024-07-15',
       participants: [
         {
-          id: '0',
+          id: '1',
           name: 'Jiwon Choi',
-          avatar: 'https://github.com/devjiwonchoi.png',
+          description: '',
+          avatarUrl: 'https://github.com/devjiwonchoi.png',
+          stats: {
+            inProgress: '3',
+            completed: '4',
+            totalPartners: '2',
+          },
         },
         {
-          id: '2',
+          id: '3',
           name: 'Jeongho Yang',
-          avatar: 'https://github.com/jeonghoyang12.png',
+          description: '',
+          avatarUrl: 'https://github.com/jeonghoyang12.png',
+          stats: {
+            inProgress: '1',
+            completed: '5',
+            totalPartners: '3',
+          },
         },
       ],
       boatType: 'pirate' as const,
@@ -110,11 +178,27 @@ async function getGoals(): Promise<Goal[]> {
       endDate: '2024-04-30',
       participants: [
         {
-          id: '0',
+          id: '1',
           name: 'Jiwon Choi',
-          avatar: 'https://github.com/devjiwonchoi.png',
+          description: '',
+          avatarUrl: 'https://github.com/devjiwonchoi.png',
+          stats: {
+            inProgress: '2',
+            completed: '3',
+            totalPartners: '4',
+          },
         },
-        { id: '1', name: 'GG Kim', avatar: 'https://github.com/ggkim0614.png' },
+        {
+          id: '2',
+          name: 'GG Kim',
+          description: '',
+          avatarUrl: 'https://github.com/ggkim0614.png',
+          stats: {
+            inProgress: '4',
+            completed: '1',
+            totalPartners: '2',
+          },
+        },
       ],
       boatType: 'boat' as const,
     },
