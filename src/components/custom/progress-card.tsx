@@ -24,8 +24,8 @@ export default function ProgressCard({
   currentDay,
   totalDays,
   avatars = [
-    '/placeholder.svg?height=32&width=32',
-    '/placeholder.svg?height=32&width=32',
+    'https://github.com/devjiwonchoi.png',
+    'https://github.com/devjiwonchoi.png',
   ],
 }: ProgressCardProps) {
   const [isOpen, setIsOpen] = useState(false)
