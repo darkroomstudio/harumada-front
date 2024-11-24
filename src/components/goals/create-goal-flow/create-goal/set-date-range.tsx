@@ -10,27 +10,29 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
-import { Input } from '@/components/ui/input'
 
-interface WriteInvitationCodeProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-  invitationCode: string
-  onInvitationCodeChange: (code: string) => void
-  children: React.ReactNode
-}
+const chips = [
+  { label: '입주일', value: 'move-in' },
+  { label: '한 달', value: 'one-month' },
+  { label: '세달', value: 'three-months' },
+  { label: '여섯 달', value: 'six-months' },
+  { label: '열두 달', value: 'twelve-months' },
+  { label: '기한 없음', value: 'no-limit' },
+]
 
-export function WriteInvitationCode({
+export function SetDateRange({
   open,
   onOpenChange,
-  invitationCode,
-  onInvitationCodeChange,
+  dateRange,
+  onDateRangeChange,
   children,
-}: WriteInvitationCodeProps) {
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onInvitationCodeChange(event.target.value)
-  }
-
+}: {
+  open: boolean
+  onOpenChange: (open: boolean) => void
+  dateRange: string
+  onDateRangeChange: (range: string) => void
+  children: React.ReactNode
+}) {
   return (
     <Drawer open={open} onOpenChange={onOpenChange} direction="right">
       <DrawerTrigger asChild>
@@ -39,7 +41,7 @@ export function WriteInvitationCode({
           variant="outline"
           onClick={() => onOpenChange(true)}
         >
-          초대 코드가 있어요 &gt;
+          기간 설정하기 &gt;
         </Button>
       </DrawerTrigger>
       <DrawerContent className="h-full w-full border-l-0 p-0 sm:max-w-full">
@@ -61,19 +63,28 @@ export function WriteInvitationCode({
           </DrawerHeader>
           <div className="flex-1 overflow-y-auto px-4 py-6">
             <DrawerTitle className="mb-4 text-2xl font-bold">
-              초대 코드를 입력해주세요
+              목표 기간을 설정해주세요.
             </DrawerTitle>
-            <DrawerDescription className="sr-only">
-              친구와 공유할 수 있는 목표를 입력해주세요
+            <DrawerDescription>
+              적절한 기간을 선택하여 꾸준히 목표를 달성해보세요
             </DrawerDescription>
             <div className="space-y-4">
-              <Input
-                value={invitationCode}
-                onChange={handleInputChange}
-                className="rounded-[44px] border-none bg-[#F8F8F8] placeholder:text-black"
-                type="text"
-                placeholder="입력하세요"
-              />
+              {/* Chips */}
+              <div className="mb-8 flex flex-wrap gap-2">
+                {chips.map((chip) => (
+                  <button
+                    key={chip.value}
+                    onClick={() => onDateRangeChange(chip.value)}
+                    className={`rounded-full px-4 py-2 text-sm transition-colors ${
+                      dateRange === chip.value
+                        ? 'bg-[#4E3FFF] text-white'
+                        : 'bg-[#F8F8F8] text-black'
+                    }`}
+                  >
+                    {chip.label}
+                  </button>
+                ))}
+              </div>
               {children}
             </div>
           </div>
