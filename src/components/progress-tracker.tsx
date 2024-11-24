@@ -88,7 +88,7 @@ export function GoalDetail({
                       {progressData.participants.map((participant, index) => (
                         <Image
                           key={participant.id}
-                          src={participant.avatar}
+                          src={participant.avatarUrl}
                           alt="Participant"
                           width={40}
                           height={40}
@@ -193,7 +193,7 @@ export function GoalDetail({
                                 {record.users.map((user, userIndex) => (
                                   <Image
                                     key={`${user.id}-${userIndex}`}
-                                    src={user.avatar}
+                                    src={user.avatarUrl}
                                     alt="User"
                                     width={32}
                                     height={32}

@@ -1,6 +1,6 @@
 'use client'
 
-import type { Goal } from '@/components/goals/filter-tabs'
+import type { Goal } from '@/types/progress'
 import { useState } from 'react'
 import { toast } from 'sonner'
 import { WriteInvitationCode } from './has-invitation/write-invitation-code'
@@ -63,7 +63,13 @@ export function CreateGoalFlowInit() {
         {
           id: '0',
           name: '최지원',
-          avatar: 'https://github.com/devjiwonchoi.png',
+          avatarUrl: 'https://github.com/devjiwonchoi.png',
+          description: '최지원',
+          stats: {
+            inProgress: '0',
+            completed: '0',
+            totalPartners: '0',
+          },
         },
       ],
       boatType: 'pirate',

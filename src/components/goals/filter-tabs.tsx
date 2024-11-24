@@ -4,17 +4,7 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useState } from 'react'
 import { PaperBoat } from '../paper-boat'
 import { GoalCard } from './goal-card'
-
-export type Goal = {
-  id: string
-  title: string
-  description: string
-  startDate: string
-  endDate: string
-  participants: { id: string; name: string; avatar: string }[]
-  boatType: 'pirate' | 'boat'
-  status: 'completed' | 'in-progress' | 'planned'
-}
+import { Goal, User } from '@/types/progress'
 
 export function FilterTabs({ goals }: { goals: Goal[] }) {
   const [activeTab, setActiveTab] = useState('in-progress')

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import type { Goal } from './filter-tabs'
+import type { Goal } from '@/types/progress'
 import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import { Card } from '@/components/ui/card'
 import { GoalDetail } from './details/progress-tracker'
@@ -33,9 +33,12 @@ export function GoalCard({
             <p className="text-sm opacity-80">{endDate}</p>
             <h3 className="font-medium">{title}</h3>
             <div className="flex -space-x-2">
-              {participants.map(({ id, avatar }) => (
-                <Avatar key={id} className="h-8 w-8 border-2 border-[#4E3FFF]">
-                  <AvatarImage src={avatar} alt="Participant" />
+              {participants.map((participant) => (
+                <Avatar
+                  key={participant.name}
+                  className="h-8 w-8 border-2 border-[#4E3FFF]"
+                >
+                  <AvatarImage src={participant.avatarUrl} alt="Participant" />
                 </Avatar>
               ))}
             </div>

@@ -55,7 +55,7 @@ export function ProgressBar({
             transition={{ delay: index * 0.2 }}
           >
             <Image
-              src={participant.avatar}
+              src={participant.avatarUrl}
               alt="Participant"
               width={24}
               height={24}

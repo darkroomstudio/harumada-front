@@ -37,7 +37,7 @@ export function AttendanceDrawer({
                   {record.users.map((user, index) => (
                     <Image
                       key={`${user.id}-${index}`}
-                      src={user.avatar}
+                      src={user.avatarUrl}
                       alt="User"
                       width={32}
                       height={32}
