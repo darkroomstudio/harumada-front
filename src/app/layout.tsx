@@ -1,6 +1,4 @@
 import { Nanum_Gothic } from 'next/font/google'
-import { Header } from '@/components/layouts/header'
-import { BottomNav } from '@/components/layouts/bottom-nav'
 import { cn } from '@/lib/utils'
 import './globals.css'
 
@@ -24,9 +22,7 @@ export default function RootLayout({
           nanumGothic.variable
         )}
       >
-        <Header />
         {children}
-        <BottomNav />
       </body>
     </html>
   )
