@@ -69,10 +69,7 @@ export function InvitationPreview({
               </DrawerDescription>
               <div className="mb-8 flex flex-col items-center">
                 <Image
-                  src={
-                    goalInfo.participants[0].avatar ||
-                    '/placeholder.svg?height=100&width=100'
-                  }
+                  src={goalInfo.participants[0].avatar}
                   alt={`${goalInfo.participants[0].name}'s avatar`}
                   width={100}
                   height={100}
