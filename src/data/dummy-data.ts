@@ -19,24 +19,24 @@ export const progressData: ProgressData = {
       day: 15,
       date: '6/28',
       users: [
-        { id: '1', avatar: '/placeholder.svg?height=32&width=32' },
-        { id: '2', avatar: '/placeholder.svg?height=32&width=32' },
+        { id: '1', avatar: 'https://github.com/devjiwonchoi.png' },
+        { id: '2', avatar: 'https://github.com/devjiwonchoi.png' },
       ],
     },
     {
       day: 16,
       date: '6/29',
       users: [
-        { id: '1', avatar: '/placeholder.svg?height=32&width=32' },
-        { id: '2', avatar: '/placeholder.svg?height=32&width=32' },
+        { id: '1', avatar: 'https://github.com/devjiwonchoi.png' },
+        { id: '2', avatar: 'https://github.com/devjiwonchoi.png' },
       ],
     },
     {
       day: 17,
       date: '6/30',
       users: [
-        { id: '1', avatar: '/placeholder.svg?height=32&width=32' },
-        { id: '2', avatar: '/placeholder.svg?height=32&width=32' },
+        { id: '1', avatar: 'https://github.com/devjiwonchoi.png' },
+        { id: '2', avatar: 'https://github.com/devjiwonchoi.png' },
       ],
     },
   ],
